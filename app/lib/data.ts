@@ -106,11 +106,13 @@ export async function fetchCardData() {
   }
 }
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 10;
 export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
 ) {
+  // Add noStore() here prevent the response from being cached. 
+  // this will make the component load everytime the page is refreshed
   noStore();
 
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
